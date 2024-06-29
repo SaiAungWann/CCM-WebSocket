@@ -29,6 +29,5 @@ io.on("connection", (socket) => {
   });
   socket.on("typing", (name) => {
     socket.broadcast.emit("typing", name);
-    console.log(name);
   });
 });
