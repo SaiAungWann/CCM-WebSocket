@@ -1,14 +1,9 @@
 const express = require("express");
 const socket = require("socket.io");
-const ejs = require("ejs");
 
 // -------- app setup -------
 
 const app = express();
-
-// -------- view engine setup -------
-app.set("view engine", "ejs");
-app.set("views", "./public");
 
 // -------- server setup -------
 
@@ -22,9 +17,7 @@ app.get("/", (res, req) => {
   // req.sendFile("/public/index.html", { root: __dirname });
 
   //   both of the code is working
-  // req.sendFile(__dirname + "/public/index.html");
-
-  res.render("index", { root: __dirname });
+  req.sendFile(__dirname + "/public/index.html");
 });
 
 // --------- socket setup for server side -------
