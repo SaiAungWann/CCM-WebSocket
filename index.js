@@ -20,6 +20,12 @@ app.get("/", (res, req) => {
   req.sendFile(__dirname + "/public/index.html");
 });
 
+// -------- static setup -------
+// when using express.static to use the public folder for external css
+let path = require("path");
+
+app.use(express.static(path.join(__dirname, "public")));
+
 // --------- socket setup for server side -------
 
 const io = socket(server);
